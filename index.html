@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niko Go | Portfolio</title>
     <link rel="stylesheet" href="indecss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
@@ -30,8 +31,31 @@
 
     <div class="content">
         <h1>niko go.</h1>
-    </div>
 
+        <p class="gd">Graphic Designer</p>
+
+        <p class="desc">As a passionate and determined individual, I am eager to continue
+        growing in the design field. With experience in print layout, social
+        media designs, video editing, logo designing, and poster designs, I
+        am confident in my ability to create impactful designs across
+        various mediums. I am always willing to learn and expand my
+        knowledge in the ever-evolving design industry.</p>
+
+        <ul class="socials">
+            <li>
+                <i class="fa-solid fa-phone"></i>
+                +63 905 365 5921
+            </li>
+            <li>
+                <i class="fa-solid fa-envelope"></i>
+                designernikogo@gmail.com
+            </li>
+            <li>
+                <i class="fa-solid fa-location-dot"></i>
+                Cagayan de Oro City, Philippines
+            </li>
+        </ul>
+    </div>
     <div class="marquee-container">
         <div class="marquee-content">
             <img src="Projects/GAOT 2.webp" alt="1">
@@ -44,5 +68,38 @@
             <img src="Projects/CSG LOGO PFP.webp" alt="8">
         </div>
     </div>
+
 </body>
+
+<script>
+    const slider = document.querySelector('.marquee-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active'); // Helpful for changing the cursor
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // Exit if mouse is not clicked
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Multiplier of 2 for faster scrolling
+            slider.scrollLeft = scrollLeft - walk;
+        });
+</script>
 </html>

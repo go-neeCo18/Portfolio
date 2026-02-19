@@ -58,6 +58,12 @@ body {
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+}
+
+.marquee-container:active {
+    cursor: grabbing;   
 }
 
 .marquee-content {
@@ -69,6 +75,7 @@ body {
 .marquee-content img {
     height: 200px;
     margin: 25px 8px;
+    z-index: -1;
 }
 
 @keyframes scroll {
@@ -86,17 +93,44 @@ body {
 .title{
     text-align: center;
     width: 100%;
-    font-size: 10px;
+    font-size: 12px;
     color: rgb(37, 37, 37);
     background-color: rgb(244, 244, 244);
 }
 
 .content{
-    width: 100%;
-    margin-left: 10%;
+    width: 90%;
 }
 
 .content h1{
     font-size: 80px;
     color: white;
+}
+
+.gd{
+    margin-top: -50px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.355);
+}
+
+.desc{
+    text-align: justify;
+    font-style: normal;
+    font-size: 30px;
+    color: white;
+    padding-left: 0;
+    padding-right: 20%;
+}
+
+.socials {
+    padding: 50px 0;
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    color: white;
+}
+
+.socials li{
+    font-size: 20px;
 }
