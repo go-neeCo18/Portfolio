@@ -3,7 +3,7 @@ body {
     width: 100%;
     min-height: 100vh;
     font-family: Helvetica, sans-serif;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(27, 27, 27);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +13,6 @@ body {
 
 .navbar {
     width: 100%;
-    background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,16 +20,11 @@ body {
     box-sizing: border-box;
 }
 
-.name {
-    color: white;
-    font-weight: bold;
-}
-
 .navoptions {
     display: flex;
     list-style: none;
     gap: 30px;
-    color: white;
+    color: rgb(244, 244, 244);
 }
 
 .navbar ul li {
@@ -51,24 +45,25 @@ body {
 }
 
 .name {
-    color: white;
+    color: rgb(244, 244, 244);
     padding: 5px 0;
 }
 
 .designer {
-    color: rgba(255, 255, 255, 0.59);
+    color: rgba(245, 245, 245, 0.59);
 }
 
 .marquee-container {
-    overflow: hidden;
     width: 100%;
-    background: #f2f2f2;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
 }
 
 .marquee-content {
     display: flex;
     width: max-content;
-    animation: scroll 30s linear infinite;
+    flex-wrap: nowrap;
 }
 
 .marquee-content img {
@@ -86,4 +81,22 @@ body {
     }
 
     
+}
+
+.title{
+    text-align: center;
+    width: 100%;
+    font-size: 10px;
+    color: rgb(37, 37, 37);
+    background-color: rgb(244, 244, 244);
+}
+
+.content{
+    width: 100%;
+    margin-left: 10%;
+}
+
+.content h1{
+    font-size: 80px;
+    color: white;
 }
