@@ -134,3 +134,59 @@ body {
 .socials li{
     font-size: 20px;
 }
+
+@media (max-width: 768px) {
+
+    .name {
+        padding: 0;
+        font-size: 15px;
+        flex-wrap: nowrap;
+    }
+
+    .designer {
+        font-size: 0px;
+    }
+
+    .navbar {
+        padding: 5%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navoptions {
+        padding: 0;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .navbar ul li {
+        font-size: 10px;
+    }
+
+    .content h1 {
+        font-size: 60px;
+    }
+
+    .gd {
+        margin-top: -35px;
+        font-size: 16px;
+    }
+
+    .desc {
+        font-size: 18px;
+        padding-right: 10px;
+        text-align: justify;
+    }
+
+    .marquee-content img {
+        height: 150px;
+    }
+
+    .socials {
+        gap: 10px;
+    }
+
+    .socials li {
+        font-size: 15px;
+    }
+}
