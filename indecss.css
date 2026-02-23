@@ -21,6 +21,7 @@ body {
 }
 
 .navoptions {
+    align-items: baseline;
     display: flex;
     list-style: none;
     gap: 30px;
@@ -29,14 +30,26 @@ body {
 
 .navbar ul li {
     font-size: 14px;
-    padding: 5px 0;
     cursor: pointer;
     white-space: nowrap;
+}
+
+.contact {
+    color: rgb(27, 27, 27);
+    font-weight: bold;
+    background-color: rgb(243, 243, 243);
+    padding: 8px 8px 8px 8px;
+}
+
+.contact:hover{
+    color: rgb(243, 243, 243);
+    background-color: rgb(86, 86, 86);
 }
 
 .navbar ul li:hover{
     color: rgb(126, 126, 126);
 }
+
 
 .brand{
     gap: 20px;
@@ -76,18 +89,6 @@ body {
     height: 200px;
     margin: 25px 8px;
     z-index: -1;
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-
-    
 }
 
 .title{
@@ -138,6 +139,7 @@ body {
 @media (max-width: 768px) {
 
     .name {
+        visibility: hidden;
         padding: 0;
         font-size: 20px;
         flex-wrap: nowrap;
@@ -148,6 +150,8 @@ body {
     }
 
     .navbar {
+        bottom: 3%;
+        position: fixed;
         padding: 5%;
         flex-direction: row;
         justify-content: space-between;
@@ -155,7 +159,9 @@ body {
 
     .navoptions {
         padding: 0;
+        gap: 25px;
         flex-wrap: nowrap;
+        flex-direction: column;
         justify-content: space-between;
     }
 
