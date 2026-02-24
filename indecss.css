@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     width: 100%;
@@ -12,15 +16,25 @@ body {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-row{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
-    box-sizing: border-box;
 }
 
-.navoptions {
+.navoptions, a{
+    text-decoration: none;
     align-items: baseline;
     display: flex;
     list-style: none;
@@ -34,7 +48,7 @@ body {
     white-space: nowrap;
 }
 
-.contact {
+.contact{
     color: rgb(27, 27, 27);
     font-weight: bold;
     background-color: rgb(243, 243, 243);
@@ -46,7 +60,7 @@ body {
     background-color: rgb(86, 86, 86);
 }
 
-.navbar ul li:hover{
+.navbar ul li:not(.contact) a:hover{
     color: rgb(126, 126, 126);
 }
 
@@ -64,6 +78,20 @@ body {
 
 .designer {
     color: rgba(245, 245, 245, 0.59);
+}
+
+.title {
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    color: rgb(37, 37, 37);
+    background-color: rgb(244, 244, 244);
+}
+
+.navbar.hide {
+    transform: translateY(-100%);
 }
 
 .marquee-container {
@@ -91,19 +119,12 @@ body {
     z-index: -1;
 }
 
-.title{
-    text-align: center;
-    width: 100%;
-    font-size: 12px;
-    color: rgb(37, 37, 37);
-    background-color: rgb(244, 244, 244);
-}
-
 .content{
     width: 90%;
 }
 
 .content h1{
+    margin-top: 10%;
     font-size: 80px;
     color: white;
 }
@@ -127,7 +148,7 @@ body {
     padding: 50px 0;
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 20px;
     flex-direction: column;
     color: white;
 }
@@ -136,32 +157,63 @@ body {
     font-size: 20px;
 }
 
+.backtotop{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    position: fixed;
+    color: rgb(37, 37, 37);
+    background-color: rgba(255, 255, 255, 0.823);
+    bottom: 15px;
+    right: 15px;
+    border-radius: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.backtotop p{
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0px 15px 0 15px;
+}
+
+.backtotop.hide{
+    transform: translateY(150%);
+}
+
+
 @media (max-width: 768px) {
 
     .name {
-        visibility: hidden;
+        display: none;
         padding: 0;
         font-size: 20px;
         flex-wrap: nowrap;
     }
 
     .designer {
-        font-size: 0px;
+        display: none;
     }
 
-    .navbar {
-        bottom: 3%;
-        position: fixed;
-        padding: 5%;
-        flex-direction: row;
-        justify-content: space-between;
+     .navbar {
+        top: 0;
+        width: 100%;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .nav-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 15px;
+        width: 100%;
     }
 
     .navoptions {
         padding: 0;
         gap: 25px;
         flex-wrap: nowrap;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
     }
 
@@ -170,6 +222,7 @@ body {
     }
 
     .content h1 {
+        margin-top: 25%;
         font-size: 60px;
     }
 
@@ -181,7 +234,7 @@ body {
     .desc {
         font-size: 18px;
         padding-right: 10px;
-        text-align: left;
+        text-align: justify;
     }
 
     .marquee-content img {
