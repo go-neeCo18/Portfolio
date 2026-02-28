@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: Helvetica, sans-serif;
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+}
+/*NAV*/
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.navoptions,
+a {
+    text-decoration: none;
+    align-items: baseline;
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    color: rgb(244, 244, 244);
+}
+
+.navbar ul li {
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.contact {
+    color: rgb(27, 27, 27);
+    font-weight: bold;
+    background-color: rgb(243, 243, 243);
+    padding: 8px 8px 8px 8px;
+}
+
+.contact:hover {
+    color: rgb(243, 243, 243);
+    background-color: rgb(86, 86, 86);
+}
+
+.navbar ul li:not(.contact) a:hover {
+    color: rgb(126, 126, 126);
+}
+
+
+.brand {
+    gap: 20px;
+    align-items: baseline;
+    display: flex;
+}
+
+.name {
+    color: rgb(244, 244, 244);
+    padding: 5px 0;
+}
+
+.designer {
+    color: rgba(245, 245, 245, 0.59);
+}
+
+.title {
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    color: rgb(37, 37, 37);
+    background-color: rgb(244, 244, 244);
+}
+
+/* CONTENT */
+.container {
+    margin-top: 120px;
+    /* space for fixed header + nav */
+    padding: 20px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    background-color: rgba(248, 248, 248, 0.956);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+}
+
+/* IMAGE */
+.pic img {
+    width: 100%;
+    max-width: 2500px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* INFO */
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.XU{
+    width: 100%;
+    font-size: 12px;
+    font-family: serif;
+    font-style: normal;
+}
+
+.Name {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.course {
+    font-size: 15px;
+}
+
+.desc {
+    text-align: justify;
+    width: 90%;
+}
+
+.deets {
+    display: flex;
+    gap: 25px;
+}
+
+/* ✅ MOBILE FIX */
+@media (max-width: 768px) {
+
+        .name {
+            display: none;
+                padding: 0;
+                font-size: 20px;
+                flex-wrap: nowrap;
+            }
+        
+            .designer {
+                display: none;
+            }
+
+    .navbar {
+            top: 0;
+            width: 100%;
+            flex-direction: column;
+            padding: 0;
+        }
+    
+        .nav-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15px;
+            width: 100%;
+        }
+    
+        .navoptions {
+            padding: 0;
+            gap: 25px;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    
+        .navbar ul li {
+            font-size: 12px;
+        }
+    
+        .content h1 {
+            margin-top: 25%;
+            font-size: 60px;
+        }
+    
+        .gd {
+            margin-top: -35px;
+            font-size: 16px;
+        }
+    
+        .desc {
+            font-size: 18px;
+            padding-right: 10px;
+            text-align: justify;
+        }
+
+    .pic {
+        max-width: 350px;
+    }
+
+    .XU {
+        text-align: left;
+    }
+
+    .container {
+        width: 80%;
+        padding: 50px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Name {
+        font-size: 2rem;
+        text-align: left;
+    }
+
+    .course {
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .desc {
+        text-align: left;
+        margin: 10% 0 10% 0;
+    }
+
+    .deets {
+        gap: 10px;
+        align-items: first baseline;
+        flex-direction: column;
+    }
+
+    .deets p {
+        margin: 0;
+        padding: 0;
+    }
+}
