@@ -23,6 +23,57 @@ body {
     overflow-x: hidden;
 }
 
+/* Full-screen Overlay */
+#splash-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(2, 2, 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-wrapper,
+.welcome-wrapper {
+    overflow: hidden;
+}
+
+.intro-logo {
+    height: 80px;
+    width: auto;
+    transform: translateY(110%);
+    animation: splashRise 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+}
+
+.welcome-text {
+    font-size: 2.5rem;
+    margin: 0;
+    color: white;
+    transform: translateY(110%);
+    animation: splashRise 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) 0.4s forwards;
+}
+
+@keyframes splashRise {
+    to {
+        transform: translateY(0);
+    }
+}
+
+#splash-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* --- Navigation Bar --- */
 .navbar {
     position: fixed;
@@ -40,6 +91,7 @@ body {
     align-items: center;
     padding: 20px 50px;
     animation: anime 1s ease forwards;
+    animation-delay: 1.5s;
 }
 
 .navoptions {
@@ -111,8 +163,6 @@ body {
     transform: translateY(-100%);
 }
 
-
-
 /* --- Landing --- */
 .landing {
     width: 100%;
@@ -134,11 +184,15 @@ body {
 
 .designer {
     margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
     display: flex;
     color: rgb(255, 255, 255);
-    font-size: 11em;
-    gap: 55px;
+    font-size: clamp(3rem, 12vw, 11rem);
+    gap: 2px 55px;
+    width: 100%;
     animation: riseUp 1.2s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+    animation-delay: 1.5s;
 }
 
 @keyframes riseUp {
@@ -179,14 +233,16 @@ body {
 
 .marquee {
     display: flex;
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     white-space: nowrap;
     padding: 10px 0;
+    background-color: aquamarine;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .marquee-track {
+    width: 100vw;
     padding: 15px 0;
     display: flex;
     width: max-content;
@@ -256,15 +312,49 @@ body {
 }
 
 /* --- Responsive Media Queries --- */
+
 @media (max-width: 768px) {
 
-    /* ===== NAV ===== */
-    .name,
-    .designer {
+    .nav-row {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navoptions {
+        gap: 20px;
+        font-size: 1.2em;
+    }
+
+    .contact-container {
         display: none;
     }
 
-    .nav-row {
-        justify-content: center;
+    /* Landing Section */
+
+    .landing {
+        margin-top: 25%;
+    }
+
+    .designer {
+        font-size: 4.5em;
+        flex-direction: column;
+        gap: 0;
+        line-height: 0.9;
+        text-align: center;
+    }
+
+    .niko,
+    .go {
+        letter-spacing: 2px;
+    }
+
+    .landing p {
+        font-size: 1.2em;
+        transform: translateY(0);
+    }
+
+    .marquee-track h3 {
+        font-size: 20px;
     }
 }
