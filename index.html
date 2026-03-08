@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niko Go | Portfolio</title>
+
     <link rel="stylesheet" href="indecss.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -11,66 +13,68 @@
 <body>
 
     <nav class="navbar">
-
-        <p class="title"> Niko Go's Design Portfolio </p>
-
         <div class="nav-row">
+
             <div class="brand">
-                <h3 class="name"> Niko Go </h3>
-                <p class = "designer"> Graphic Designer </p>
+                <img src="Icons/Logo.webp" alt="Personal Logo" class="logo">
+            </div>
+    
+            <ul class="navoptions">
+                <li><a href="#landing">Home</a></li>
+                <li><a href="#content">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+    
+            <div class="contact-container">
+                <a href="mailto:designernikogo@gmail.com" class="contact">Contact Me</a>
             </div>
             
-
-            <ul class="navoptions">
-                <li><a href="#content" class="home">Home</a></li>
-                <li><a href="#projects" class="projects">Projects</a></li>
-                <li><a href="idindex.html"  class="about">About Me</a></li>
-                <li><a href="#" class="contact">Contact Me</a></li>
-            </ul>
         </div>
     </nav>
 
-    <main id="content" class="content">
-        <h1>niko go.</h1>
+    <div id="landing" class="landing">
 
-        <p class="gd">Graphic Designer</p>
-
-        <p class="desc">Creative graphic designer specializing in brand identity, logos, apparel, and social media content. I turn concepts into
-        visuals that leave a lasting impression.</p>
-
-        <ul class="socials">
-            <li>
-                <i class="fa-solid fa-phone"></i>
-                +63 905 365 5921
-            </li>
-            <li>
-                <i class="fa-solid fa-envelope"></i>
-                designernikogo@gmail.com
-            </li>
-            <li>
-                <i class="fa-solid fa-location-dot"></i>
-                Cagayan de Oro City, Philippines
-            </li>
-        </ul>
-    </main>
-    <aside id= "projects" class="marquee-container">
-        <div class="marquee-content">
-            <img src="Projects/GAOT 2.webp" alt="1">
-            <img src="Projects/GAOT.webp" alt="2">
-            <img src="Projects/TXC.webp" alt="3">
-            <img src="Projects/MAGIS ASSEMBLY.webp" alt="4">
-            <img src="Projects/CCS MONTH HEADER.webp" alt="5">
-            <img src="Projects/1 Cover.webp" alt="6">
-            <img src="Projects/COVER PHOTO.webp" alt="7">
-            <img src="Projects/CSG LOGO PFP.webp" alt="8">
+        <div class="title-mask">
+            <div class="designer">
+                <h1 class="niko">NIKO</h1>
+                <h1 class="go">GO</h1>
+            </div>
         </div>
-    </aside>
+            <p class="year">✦ 2026 ✦</p>
+            
+            <div class="marquee">
+                <div class="marquee-track">
+    
+                    <div class="marquee-content">
+                        <h3>Graphic Designer ✦ Graphic Designer ✦ Graphic Designer ✦ Graphic Designer ✦ Graphic Designer ✦ Graphic
+                            Designer |</h3>
+                    </div>
 
-    <div id="back" class="backtotop"> <a href="#content">
-        <p> Back to Top </p>
-    </a></div>
+                    <div class="marquee-content">
+                        <h3>Graphic Designer ✦ Graphic Designer ✦ Graphic Designer ✦ Graphic Designer ✦ Graphic Designer ✦ Graphic
+                            Designer |</h3>
+                    </div>
+
+                </div>
+            </div>
+
+        <div class="scroll">
+            <p>Scroll for More</p>
+        </div>
+
+    </div>
+
+    
+
+    <div class="content"></div>
+
+    <div id="back" class="backtotop">
+        <a href="#">
+            <p> Back to Top </p>
+        </a>
+    </div>
+
+    <script src="indexjs.js"></script>
 
 </body>
-<script src="indexjs.js"> </script>
-
 </html>

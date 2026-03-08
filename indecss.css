@@ -1,5 +1,12 @@
-html{
+
+/* --- Global Styles --- */
+html {
     scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'CubaoFree';
+    src: url(Fonts/Cubao_Free_Regular.otf);
 }
 
 body {
@@ -7,7 +14,8 @@ body {
     width: 100%;
     min-height: 100vh;
     font-family: Helvetica, sans-serif;
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(2, 2, 2);
+    color: rgb(244, 244, 244);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,242 +23,248 @@ body {
     overflow-x: hidden;
 }
 
+/* --- Navigation Bar --- */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 30px;
     z-index: 999;
     transition: transform 0.3s ease-in-out;
+    background-color: rgb(2, 2, 2);
+    box-shadow: 0px 15px 30px 5px rgba(0, 0, 0, 0.5);
 }
 
-.nav-row{
+.nav-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 20px 50px;
+    animation: anime 1s ease forwards;
 }
 
-.navoptions, a{
-    text-decoration: none;
-    align-items: baseline;
+.navoptions {
     display: flex;
+    flex-direction: row;
+    gap: 50px;
     list-style: none;
-    gap: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    font-family: "CubaoFree";
+}
+
+.navoptions a {
+    text-decoration: none;
     color: rgb(244, 244, 244);
+    transition: 0.3s ease;
 }
 
-.navbar ul li {
-    font-size: 14px;
-    cursor: pointer;
-    white-space: nowrap;
+.navoptions a:hover {
+    font-size: 0.9em;
+    color: rgb(86, 86, 86);
 }
 
-.contact{
+.contact-container {
+    display: flex;
+    align-items: center;
+}
+
+.contact {
+    text-decoration: none;
     color: rgb(27, 27, 27);
     font-weight: bold;
     background-color: rgb(243, 243, 243);
-    padding: 8px 8px 8px 8px;
+    padding: 10px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
 }
 
-.contact:hover{
+.contact:hover {
     color: rgb(243, 243, 243);
     background-color: rgb(86, 86, 86);
 }
 
-.navbar ul li:not(.contact) a:hover{
-    color: rgb(126, 126, 126);
+.logo {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-
-.brand{
-    gap: 20px;
-    align-items: baseline;
-    display: flex;
+.logo:hover {
+    opacity: 0.5;
 }
 
-.name {
-    color: rgb(244, 244, 244);
-    padding: 5px 0;
-}
+@keyframes anime {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
 
-.designer {
-    color: rgba(245, 245, 245, 0.59);
-}
-
-.title {
-    margin: 0;
-    padding: 5px;
-    text-align: center;
-    width: 100%;
-    font-size: 12px;
-    color: rgb(37, 37, 37);
-    background-color: rgb(244, 244, 244);
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .navbar.hide {
     transform: translateY(-100%);
 }
 
-.marquee-container {
+
+
+/* --- Landing --- */
+.landing {
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    cursor: grab;
-    user-select: none;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 2%;
 }
 
-.marquee-container:active {
-    cursor: grabbing;   
+.title-mask {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.designer {
+    margin-top: 20px;
+    display: flex;
+    color: rgb(255, 255, 255);
+    font-size: 11em;
+    gap: 55px;
+    animation: riseUp 1.2s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+}
+
+@keyframes riseUp {
+    from {
+        transform: translateY(100%) rotate(10deg);
+    }
+    
+    to {
+        transform: translateY(0) rotate(0eg);
+    }
+}
+
+.niko {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 5px;
+    font-family: 'CubaoFree';
+}
+
+.go {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 5px;
+    font-family: 'CubaoFree';
+}
+
+.landing p {
+    transform: translateY(-20px);
+    margin: 20px 0;
+    font-size: 2em;
+}
+
+.scroll p{
+    opacity: 50%;
+    margin-top: 50px;
+    font-size: 1.2em;
+}
+
+.marquee {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    padding: 15px 0;
+    display: flex;
+    width: max-content;
+    animation: scroll 15s linear infinite;
+    background-color: rgb(255, 255, 255);
 }
 
 .marquee-content {
+    letter-spacing: -1px;
     display: flex;
-    width: max-content;
-    flex-wrap: nowrap;
 }
 
-.marquee-content img {
-    height: 200px;
-    margin: 25px 8px;
-    z-index: -1;
-}
-
-.content{
-    width: 90%;
-}
-
-.content h1{
-    margin-top: 10%;
-    font-size: 80px;
-    color: white;
-}
-
-.gd{
-    margin-top: -50px;
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.355);
-}
-
-.desc{
-    text-align: justify;
-    font-style: normal;
+.marquee-track h3 {
     font-size: 30px;
-    color: white;
-    padding-left: 0;
-    padding-right: 20%;
+    margin: 0;
+    padding-right: 10px;
+    color: rgb(36, 36, 36);
 }
 
-.socials {
-    padding: 50px 0;
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    color: white;
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
-.socials li{
-    font-size: 20px;
+/* Content */
+.content{
+    width: 100%;
+    height: 2500px;
+    background-color: white;
 }
 
-.backtotop{
-    display: flex;
-    justify-content: center;
-    width: fit-content;
+/* Back to Top */
+.backtotop {
     position: fixed;
     color: rgb(37, 37, 37);
-    background-color: rgba(255, 255, 255, 0.823);
+    background-color: rgba(0, 0, 0, 0.823);
     bottom: 15px;
     right: 15px;
     border-radius: 25px;
     transition: transform 0.3s ease-in-out;
+    padding: 0 15px;
+    
 }
 
-.backtotop{
-    color: rgb(37, 37, 37);
+.backtotop a{
+    color: rgb(244, 244, 244);
+    text-decoration: none;
     font-weight: bold;
-    font-size: 12px;
-    padding: 0px 15px 0 15px;
+    font-size: 0.7em;
 }
 
-.backtotop p{
-    color: rgb(37, 37, 37);
+.backtotop a:hover{
+    color: rgb(255, 255, 255);
 }
 
-.backtotop.hide{
+.backtotop:hover{
+    background-color: rgba(102, 102, 102, 0.823);
+}
+
+.backtotop.hide {
     transform: translateY(150%);
 }
 
-
+/* --- Responsive Media Queries --- */
 @media (max-width: 768px) {
 
-    .name {
-        display: none;
-        padding: 0;
-        font-size: 20px;
-        flex-wrap: nowrap;
-    }
-
+    /* ===== NAV ===== */
+    .name,
     .designer {
         display: none;
     }
 
-     .navbar {
-        top: 0;
-        width: 100%;
-        flex-direction: column;
-        padding: 0;
-    }
-
     .nav-row {
-        display: flex;
         justify-content: center;
-        align-items: center;
-        padding: 0 15px;
-        width: 100%;
-    }
-
-    .navoptions {
-        padding: 0;
-        gap: 25px;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .navbar ul li {
-        font-size: 12px;
-    }
-
-    .content h1 {
-        margin-top: 25%;
-        font-size: 60px;
-    }
-
-    .gd {
-        margin-top: -35px;
-        font-size: 16px;
-    }
-
-    .desc {
-        font-size: 18px;
-        padding-right: 10px;
-        text-align: justify;
-    }
-
-    .marquee-content img {
-        height: 150px;
-    }
-
-    .socials {
-        gap: 10px;
-    }
-
-    .socials li {
-        font-size: 15px;
     }
 }
