@@ -206,13 +206,7 @@ body {
     }
 }
 
-.niko {
-    margin: 0;
-    padding: 0;
-    letter-spacing: 5px;
-    font-family: 'CubaoFree';
-}
-
+.niko,
 .go {
     margin: 0;
     padding: 0;
