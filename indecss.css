@@ -4,6 +4,10 @@ html {
     scroll-behavior: smooth;
 }
 
+* {
+    cursor: none;
+}
+
 @font-face {
     font-family: 'CubaoFree';
     src: url(Fonts/Cubao_Free_Regular.otf);
@@ -22,6 +26,20 @@ body {
     align-items: center;
     justify-content: flex-start;
     overflow-x: hidden;
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background: rgb(255, 90, 90);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease;
 }
 
 /* Full-screen Overlay */
@@ -115,6 +133,7 @@ body {
 .navoptions a:hover {
     font-size: 0.9em;
     color: rgb(86, 86, 86);
+
 }
 
 .contact-container {
@@ -133,18 +152,21 @@ body {
 }
 
 .contact:hover {
+    transform: rotate(5deg);
     color: rgb(243, 243, 243);
-    background-color: rgb(86, 86, 86);
+    background-color: rgb(255, 29, 29);
 }
 
 .logo {
     height: 30px;
     width: auto;
-    cursor: pointer;
     transition: 0.3s;
 }
 
 .logo:hover {
+    transform: rotate(-10deg);
+    width: auto;
+    height: 40px;
     opacity: 0.5;
 }
 
@@ -232,7 +254,7 @@ body {
     overflow: hidden;
     white-space: nowrap;
     padding: 10px 0;
-    background-color: aquamarine;
+    background-color: rgb(255, 90, 90);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 

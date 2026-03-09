@@ -48,3 +48,22 @@ function fillMarquee() {
 // Run on load and whenever the window is resized (zoom out fix)
 window.addEventListener('load', fillMarquee);
 window.addEventListener('resize', fillMarquee);
+
+const cursor = document.querySelector(".cursor-dot");
+
+document.addEventListener("mousemove", function(e){
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+const links = document.querySelectorAll("a, button");
+
+links.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+        cursor.style.transform = "translate(-50%, -50%) scale(2)";
+    });
+
+    link.addEventListener("mouseleave", () => {
+        cursor.style.transform = "translate(-50%, -50%) scale(1)";
+    });
+});
