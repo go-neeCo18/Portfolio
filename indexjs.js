@@ -67,3 +67,35 @@ links.forEach(link => {
         cursor.style.transform = "translate(-50%, -50%) scale(1)";
     });
 });
+
+const revealCallback = (entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Add class when scrolling DOWN into view
+            entry.target.classList.add('active');
+        } else {
+            // Remove class when scrolling UP/DOWN out of view
+            entry.target.classList.remove('active');
+        }
+    });
+};
+
+const revealOptions = {
+    threshold: 0.5
+};
+
+const observer = new IntersectionObserver(revealCallback, revealOptions);
+
+document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+});
+
+/* --- Back to Top Logic --- */
+const backToTopBtn = document.querySelector('.backtotop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+        backToTopBtn.classList.remove('hide');
+    } else {
+        backToTopBtn.classList.add('hide');
+    }
+});
