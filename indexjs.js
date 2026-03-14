@@ -61,33 +61,17 @@ const links = document.querySelectorAll("a, button");
 links.forEach(link => {
     link.addEventListener("mouseenter", () => {
         cursor.style.transform = "translate(-50%, -50%) scale(2)";
+        cursor.style.backgroundColor = "rgb(255, 255, 255)";
+        cursor.style.opacity = "80%";
+        cursor.style.boxShadow = "0 0 20px black"; 
     });
-
+    
     link.addEventListener("mouseleave", () => {
         cursor.style.transform = "translate(-50%, -50%) scale(1)";
+        cursor.style.backgroundColor = "rgb(255, 90, 90)";
+        cursor.style.opacity = "100%";
+        cursor.style.boxShadow = "none"; 
     });
-});
-
-const revealCallback = (entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Add class when scrolling DOWN into view
-            entry.target.classList.add('active');
-        } else {
-            // Remove class when scrolling UP/DOWN out of view
-            entry.target.classList.remove('active');
-        }
-    });
-};
-
-const revealOptions = {
-    threshold: 0.5
-};
-
-const observer = new IntersectionObserver(revealCallback, revealOptions);
-
-document.querySelectorAll('.reveal').forEach(el => {
-    observer.observe(el);
 });
 
 /* --- Back to Top Logic --- */
@@ -98,4 +82,39 @@ window.addEventListener('scroll', () => {
     } else {
         backToTopBtn.classList.add('hide');
     }
+});
+
+// Initialize Lenis
+const lenis = new Lenis({
+  autoRaf: true,
+});
+
+// Listen for the scroll event and log the event data
+lenis.on('scroll', (e) => {
+  console.log(e);
+});
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navoptions a");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+
+                if(link.getAttribute("href").substring(1) === entry.target.id){
+                    link.classList.add("active");
+                }
+            });
+
+        }
+    });
+}, {
+    threshold: 0.6
+});
+
+sections.forEach(section => {
+    observer.observe(section);
 });
